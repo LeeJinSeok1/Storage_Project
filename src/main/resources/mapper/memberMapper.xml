@@ -3,7 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="memberService">
+<mapper namespace="memberSpace">
+    <insert id="memberSave" parameterType="memberDTO">
+        insert into member_table(memberName,memberPhone,memberEmail,memberPass) values (#{memberName},
+                                                                                        #{memberPhone},
+                                                                                        #{memberEmail},
+                                                                                        #{memberPass})
+    </insert>
+    <select id="memberCk" parameterType="memberDTO" resultType="memberDTO">
+        select*from member_table where memberEmail=#{memberEmail} and memberPass=#{memberPass}
+    </select>
 
 </mapper>
 

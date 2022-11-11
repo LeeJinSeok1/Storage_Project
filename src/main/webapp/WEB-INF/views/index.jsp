@@ -23,25 +23,50 @@
 <div class="container" style="padding-top: 100px">
     <h2 style="text-align: center">Storage Program</h2>
     <br>
-    <form action="/login" method="get" name="loginForm" class="form-control" style="width: 500px" id="loginBox">
+    <form action="/memberLogin" method="post" name="loginForm" class="form-control" style="width: 500px" id="loginBox">
         <br>
-        <input type="text" class="form-control" placeholder="이메일입력">
+        <input type="text" class="form-control" placeholder="이메일입력" name="memberEmail" id="memberEmail">
         <span></span>
         <br>
-        <input type="text" class="form-control" placeholder="비밀번호입력">
+        <input type="text" class="form-control" placeholder="비밀번호입력" name="memberPass" id="memberPass">
         <span></span>
         <br>
         <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="로그인" >
+            <input type="button" onclick="loginCk()" value="로그인" class="btn btn-success">
             <div class="form-group" style="float: right">
-                <a href="" class="btn btn-success">회원가입</a>
+                <a href="/memberSavePage" class="btn btn-success">회원가입</a>
                 <a href="" class="btn btn-warning">비밀번호 찾기</a>
             </div>
-
         </div>
     </form>
 </div>
 </body>
 <script>
+    const loginCk = () => {
+        const memberEmail =document.getElementById("memberEmail").value;
+        const memberPass =document.getElementById("memberPass").value;
+        $.ajax({
+            type:"get",
+            url:"/memberCk",
+            data:{
+                memberEmail:memberEmail,
+                memberPass:memberPass
+            },
+            dataType: "text",
+            success: function (ck) {
+                console.log(ck)
+                if(ck=="no") {
+                   alert("이메일이나 비밀번호가 틀렸습니다.")
+                }else if(ck=="yes"){
+                    document.loginForm.submit();
+                }
+            },
+            error: function (ck) {
+                console.log(ck)
+                console.log("실패")
+            }
+        })
+
+    }
 </script>
 </html>
