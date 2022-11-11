@@ -50,9 +50,10 @@ public class MemberController {
     }
 
     @PostMapping("/memberLogin")
-    public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session) {
-
-        return null;
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
+        MemberDTO member = memberService.memberCk(memberDTO);
+        session.setAttribute("loginEmail",member.getMemberEmail());
+        return "mainPage";
     }
 
 
