@@ -20,8 +20,9 @@
     </a>
 
     <ul class="nav nav-pills">
-
-      <li class="nav-item"><a href="/index" class="nav-link active" aria-current="page">Home</a></li>
+      <c:if test="${sessionScope.loginEmail != null}">
+        <li class="nav-item"><a href="mainPage" class="nav-link active" aria-current="page">Main</a></li>
+      </c:if>
       <li class="nav-item"><a href="#" class="nav-link">목록</a></li>
       <c:if test="${sessionScope.loginEmail == null}">
         <li class="nav-item"><a href="#" class="btn btn-primary">로그인</a></li>

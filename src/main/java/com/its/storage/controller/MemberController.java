@@ -63,12 +63,12 @@ public class MemberController {
     //회원리스트에서 이름 검색
 
     @GetMapping("/searchMember")
-    public String searchMember(@RequestParam("memberName") String memberName,Model model){
-        List<MemberDTO> members = memberService.searchMember(memberName);
-        System.out.println(memberName);
-        model.addAttribute("members",members);
-        System.out.println(members);
+    public String searchMember(@RequestParam("type") String type,
+                               @RequestParam("q") String q,Model model){
+        List<MemberDTO> result = memberService.searchMember(type,q);
+        model.addAttribute("members",result);
         return "/member/memberListPage";
+
     }
 
 

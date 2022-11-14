@@ -10,6 +10,12 @@
                                                                                                 #{productLocation},
                                                                                                 #{memberName})
     </insert>
+    <select id="productList" resultType="productDTO">
+        select*from product_table;
+    </select>
+    <select id="searchProduct" parameterType="java.util.HashMap" resultType="productDTO">
+        select*from product_table where ${type} like concat('%',#{q},'%') order by id desc
+    </select>
 
 
 </mapper>

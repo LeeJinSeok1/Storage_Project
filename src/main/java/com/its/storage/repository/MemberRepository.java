@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class MemberRepository {
@@ -24,7 +25,8 @@ public class MemberRepository {
         return  sql.selectList("memberSpace.memberList");
     }
 
-    public List<MemberDTO> searchMember(String memberName) {
-        return  sql.selectList("memberSpace.searchMember",memberName);
+
+    public List<MemberDTO> searchMember(Map<String, String> searchParams) {
+        return  sql.selectList("memberSpace.searchMember",searchParams);
     }
 }

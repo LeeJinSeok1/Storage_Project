@@ -16,9 +16,10 @@
     <select id="memberList" resultType="memberDTO">
         select*from member_table
     </select>
-    <select id="searchMember" parameterType="String" resultType="memberDTO">
-        select*from member_table where memberName like concat('%',#{memberName},'%') order by id desc
+    <select id="searchMember" parameterType="java.util.HashMap" resultType="memberDTO">
+        select*from member_table where ${type} like concat('%',#{q},'%') order by id desc
     </select>
+
 
 </mapper>
 

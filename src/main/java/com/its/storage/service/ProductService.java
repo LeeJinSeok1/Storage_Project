@@ -5,6 +5,10 @@ import com.its.storage.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class ProductService {
     @Autowired
@@ -12,5 +16,17 @@ public class ProductService {
     public void productSave(ProductDTO productDTO) {
         productRepository.productSave(productDTO);
 
+    }
+
+    public List<ProductDTO> productList() {
+        return productRepository.productList();
+    }
+
+    public List<ProductDTO> searchProduct(String type, String q) {
+        Map<String,String> searchParams = new HashMap<>();
+        searchParams.put("type",type);
+        searchParams.put("q",q);
+        List<ProductDTO> result = productRepository.searchProduct(searchParams);
+        return result;
     }
 }
