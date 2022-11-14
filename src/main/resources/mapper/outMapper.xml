@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="outSpace">
+    <insert id="outSave" parameterType="outDTO">
+        insert into product_out_table(outCount,productName,memberName) values (#{outCount},
+                                                                             #{productName},
+                                                                             #{memberName})
+    </insert>
+    <select id="outList" resultType="outDTO">
+        select*from product_out_table;
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

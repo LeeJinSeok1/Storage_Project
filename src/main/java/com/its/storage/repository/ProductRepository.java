@@ -1,5 +1,7 @@
 package com.its.storage.repository;
 
+import com.its.storage.dto.InDTO;
+import com.its.storage.dto.OutDTO;
 import com.its.storage.dto.ProductDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,13 @@ public class ProductRepository {
 
     public List<ProductDTO> searchProduct(Map<String, String> searchParams) {
         return  sql.selectList("productSpace.searchProduct",searchParams);
+    }
+
+    public void upCount(InDTO inDTO) {
+        sql.update("productSpace.upCount",inDTO);
+    }
+
+    public void downCount(OutDTO outDTO) {
+        sql.update("productSpace.downCount",outDTO);
     }
 }

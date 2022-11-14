@@ -1,5 +1,7 @@
 package com.its.storage.service;
 
+import com.its.storage.dto.InDTO;
+import com.its.storage.dto.OutDTO;
 import com.its.storage.dto.ProductDTO;
 import com.its.storage.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +31,14 @@ public class ProductService {
         List<ProductDTO> result = productRepository.searchProduct(searchParams);
         return result;
     }
+
+    public void upCount(InDTO inDTO) {
+        productRepository.upCount(inDTO);
+    }
+
+    public void downCount(OutDTO outDTO) {
+        productRepository.downCount(outDTO);
+    }
+
+
 }

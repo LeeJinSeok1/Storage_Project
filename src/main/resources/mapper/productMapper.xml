@@ -16,6 +16,12 @@
     <select id="searchProduct" parameterType="java.util.HashMap" resultType="productDTO">
         select*from product_table where ${type} like concat('%',#{q},'%') order by id desc
     </select>
+    <update id="upCount" parameterType="inDTO" >
+        update product_table set productCount=productCount + #{inCount} where productName = #{productName}
+    </update>
+    <update id="downCount" parameterType="outDTO">
+        update product_table set productCount=productCount - #{outCount} where productName = #{productName}
+    </update>
 
 
 </mapper>
