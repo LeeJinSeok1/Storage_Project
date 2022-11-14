@@ -5,13 +5,11 @@ import com.its.storage.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -48,13 +46,32 @@ public class MemberController {
             return "no";
         }
     }
-
+    // 로그인 후 메인 페이지로 이동
     @PostMapping("/memberLogin")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         MemberDTO member = memberService.memberCk(memberDTO);
         session.setAttribute("loginEmail",member.getMemberEmail());
         return "mainPage";
     }
+    //회원 조회 하기
+    @GetMapping("/memberList")
+    public String memberList(Model model){
+         List<MemberDTO> members = memberService.memberList();
+         model.addAttribute("members",members);
+         return "/member/memberListPage";
+    }
+    //회원리스트에서 이름 검색
+
+    @GetMapping("/searchMember")
+    public String searchMember(@RequestParam("memberName") String memberName,Model model){
+        List<MemberDTO> members = memberService.searchMember(memberName);
+        System.out.println(memberName);
+        model.addAttribute("members",members);
+        System.out.println(members);
+        return "/member/memberListPage";
+    }
+
+
 
 
 }

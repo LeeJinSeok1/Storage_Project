@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MemberRepository {
     @Autowired
@@ -16,5 +18,13 @@ public class MemberRepository {
 
     public MemberDTO memberCk(MemberDTO memberDTO) {
         return sql.selectOne("memberSpace.memberCk",memberDTO);
+    }
+
+    public List<MemberDTO> memberList() {
+        return  sql.selectList("memberSpace.memberList");
+    }
+
+    public List<MemberDTO> searchMember(String memberName) {
+        return  sql.selectList("memberSpace.searchMember",memberName);
     }
 }

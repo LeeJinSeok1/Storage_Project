@@ -13,6 +13,12 @@
     <select id="memberCk" parameterType="memberDTO" resultType="memberDTO">
         select*from member_table where memberEmail=#{memberEmail} and memberPass=#{memberPass}
     </select>
+    <select id="memberList" resultType="memberDTO">
+        select*from member_table
+    </select>
+    <select id="searchMember" parameterType="String" resultType="memberDTO">
+        select*from member_table where memberName like concat('%',#{memberName},'%') order by id desc
+    </select>
 
 </mapper>
 

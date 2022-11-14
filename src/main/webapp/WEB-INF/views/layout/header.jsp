@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
@@ -19,9 +20,21 @@
     </a>
 
     <ul class="nav nav-pills">
-      <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+
+      <li class="nav-item"><a href="/index" class="nav-link active" aria-current="page">Home</a></li>
       <li class="nav-item"><a href="#" class="nav-link">목록</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">로그인</a></li>
+      <c:if test="${sessionScope.loginEmail == null}">
+        <li class="nav-item"><a href="#" class="btn btn-primary">로그인</a></li>
+      </c:if>
+      <c:if test="${sessionScope.loginEmail != null}">
+        <li class="nav-item"><a href="#" class="btn btn-danger">로그아웃</a></li>
+      </c:if>
+      <c:if test="${sessionScope.loginEmail != null}">
+        <li></li>
+        <li><strong>${sessionScope.loginEmail}</strong>님 환영합니다.</li>
+      </c:if>
+
+
 
 <%--      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>--%>
 <%--      <li class="nav-item"><a href="#" class="nav-link">About</a></li>--%>
