@@ -16,12 +16,12 @@
 
 <div class="form-group form-control mt-5" style="text-align: center">
     <a href="/saveProductPage" class="btn btn-primary">상품 등록하기</a>
-    <a href="/memberList" class="btn btn-primary">매니저 조회</a>
-    <a href="/productList" class="btn btn-primary">재고 조회</a>
+    <a href="/paging2" class="btn btn-primary">매니저 조회</a>
+    <a href="/paging" class="btn btn-primary">재고 조회</a>
     <a href="/inPage" class="btn btn-primary">입고 등록</a>
     <a href="/outPage" class="btn btn-primary">출고 등록</a>
-    <a href="/inListPage" class="btn btn-primary">입고기록 조회</a>
-    <a href="/outListPage" class="btn btn-primary">출고기록 조회</a>
+    <a href="/paging3" class="btn btn-primary">입고기록 조회</a>
+    <a href="/paging4" class="btn btn-primary">출고기록 조회</a>
 </div>
 <div class="form-group mt-5">
 

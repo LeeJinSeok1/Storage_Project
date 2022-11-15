@@ -25,6 +25,12 @@
     <select id="productCk" parameterType="String" resultType="productDTO">
         select*from product_table where productName=#{productName}
     </select>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="productDTO">
+        select*from product_table order by id desc limit #{start},#{limit}
+    </select>
+    <select id="productCount" resultType="integer">
+        select count(id) from product_table;
+    </select>
 
 
 </mapper>

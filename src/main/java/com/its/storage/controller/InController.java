@@ -1,6 +1,7 @@
 package com.its.storage.controller;
 
 import com.its.storage.dto.InDTO;
+import com.its.storage.dto.PageDTO;
 import com.its.storage.service.InService;
 import com.its.storage.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -35,5 +37,14 @@ public class InController {
         model.addAttribute("inList",result);
         return "/In/inListPage";
 
+    }
+    @GetMapping("/paging3")
+    public String paging(Model model, @RequestParam(value = "page",required = false,
+                                                     defaultValue = "1") int page){
+        List<InDTO> pagingList = inService.pagingList(page);
+        PageDTO pageDTO =inService.pagingParam(page);
+        model.addAttribute("inList",pagingList);
+        model.addAttribute("paging",pageDTO);
+        return "/In/inPaging";
     }
 }

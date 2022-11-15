@@ -1,5 +1,6 @@
 package com.its.storage.controller;
 
+import com.its.storage.dto.PageDTO;
 import com.its.storage.dto.ProductDTO;
 import com.its.storage.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,18 @@ public class ProductController {
         }else {
             return "no";
         }
+    }
+
+    //페이징
+
+    @GetMapping("/paging")
+    public String paging(Model model,@RequestParam(value= "page",required = false,defaultValue = "1") int page){
+        List<ProductDTO> pagingList= productService.pagingList(page);
+
+        PageDTO pageDTO = productService.pagingParam(page);
+        model.addAttribute("productList",pagingList);
+        model.addAttribute("paging",pageDTO);
+        return "/product/productPaging";
     }
 
 }

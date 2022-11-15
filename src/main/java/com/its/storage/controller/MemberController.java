@@ -1,6 +1,7 @@
 package com.its.storage.controller;
 
 import com.its.storage.dto.MemberDTO;
+import com.its.storage.dto.PageDTO;
 import com.its.storage.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -118,6 +119,17 @@ public class MemberController {
     public String updateMember(@ModelAttribute MemberDTO memberDTO){
         memberService.updateMember(memberDTO);
         return "mainPage";
+    }
+
+    @GetMapping("/paging2")
+    public String paging2(Model model,@RequestParam(value="page", required = false,
+                                                    defaultValue = "1") int page){
+        List<MemberDTO> memberList = memberService.pagingList(page);
+
+        PageDTO pageDTO = memberService.pagingParams(page);
+        model.addAttribute("memberList",memberList);
+        model.addAttribute("paging",pageDTO);
+        return "/member/memberPaging";
     }
 
 

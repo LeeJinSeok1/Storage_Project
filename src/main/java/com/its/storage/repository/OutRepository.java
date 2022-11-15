@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class OutRepository {
@@ -17,5 +18,13 @@ public class OutRepository {
 
     public List<OutDTO> outList() {
         return sql.selectList("outSpace.outList");
+    }
+
+    public List<OutDTO> pagingList(Map<String, Integer> pagingParams) {
+        return sql.selectList("outSpace.pagingList",pagingParams);
+    }
+
+    public int outCount() {
+        return sql.selectOne("outSpace.outCount");
     }
 }

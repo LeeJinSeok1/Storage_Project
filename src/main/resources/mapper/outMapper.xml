@@ -12,6 +12,12 @@
     <select id="outList" resultType="outDTO">
         select*from product_out_table;
     </select>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="outDTO">
+        select*from product_out_table order by id desc limit #{start},#{limit}
+    </select>
+    <select id="outCount" resultType="integer">
+        select count(id) from product_out_table ;
+    </select>
 
 
 </mapper>

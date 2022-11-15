@@ -12,6 +12,12 @@
     <select id="inList" resultType="inDTO">
         select*from product_in_table;
     </select>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="inDTO">
+        select*from product_in_table order by id desc limit #{start},#{limit}
+    </select>
+    <select id="inCount" resultType="integer">
+        select count(id) from product_in_table ;
+    </select>
 
 
 </mapper>

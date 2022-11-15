@@ -34,6 +34,12 @@
     <update id="updateMember" parameterType="memberDTO">
         update member_table set memberPass=#{memberPass} where id=#{id}
     </update>
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="memberDTO">
+        select*from member_table order by id desc limit #{start}, #{limit}
+    </select>
+    <select id="memberCount" resultType="integer">
+        select count(id) from member_table;
+    </select>
 
 
 

@@ -37,4 +37,12 @@ public class ProductRepository {
     public ProductDTO productCk(String productName) {
         return sql.selectOne("productSpace.productCk",productName);
     }
+
+    public List<ProductDTO> pagingList(Map<String, Integer> pagingParams) {
+        return sql.selectList("productSpace.pagingList",pagingParams);
+    }
+
+    public int productCount() {
+        return sql.selectOne("productSpace.productCount");
+    }
 }

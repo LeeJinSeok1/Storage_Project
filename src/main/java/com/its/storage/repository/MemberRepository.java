@@ -50,4 +50,12 @@ public class MemberRepository {
     public void updateMember(MemberDTO memberDTO) {
         sql.update("memberSpace.updateMember",memberDTO);
     }
+
+    public List<MemberDTO> pagingList(Map<String, Integer> pagingParams) {
+        return sql.selectList("memberSpace.pagingList",pagingParams);
+    }
+
+    public int memberCount() {
+        return  sql.selectOne("memberSpace.memberCount");
+    }
 }
