@@ -25,22 +25,23 @@
     <br>
     <form action="/memberLogin" method="post" name="loginForm" class="form-control" style="width: 500px" id="loginBox">
         <br>
-        <input type="text" class="form-control" placeholder="이메일입력" name="memberEmail" id="memberEmail">
-        <span></span>
+        이메일
+        <input type="text" class="form-control" placeholder="이메일입력" name="memberEmail" id="memberEmail" onblur="emailLoginBox()">
+        <span id="email1"></span>
         <br>
-        <input type="text" class="form-control" placeholder="비밀번호입력" name="memberPass" id="memberPass">
-        <span></span>
+        비밀번호
+        <input type="text" class="form-control" placeholder="비밀번호입력" name="memberPass" id="memberPass" onblur="passLoginBox()">
+        <span id="pass1"></span>
         <br>
         <div class="form-group">
-            <input type="button" onclick="loginCk()" value="로그인" class="btn btn-success">
+            <input type="button" onclick="loginCk()" value="로그인" class="btn btn-primary">
             <div class="form-group" style="float: right">
                 <a href="/memberSavePage" class="btn btn-success">회원가입</a>
-                <a href="" class="btn btn-warning">비밀번호 찾기</a>
             </div>
         </div>
     </form>
 </div>
-<a href="/sideBar">tt</a>
+
 </body>
 <script>
     const loginCk = () => {
@@ -68,6 +69,22 @@
             }
         })
 
+    }
+    const emailLoginBox = () => {
+        const memberEmail =document.getElementById("memberEmail").value;
+        const b1=document.getElementById("email1");
+        if(memberEmail==""){
+            b1.innerHTML="이메일을 입력해주세요"
+            b1.style.color="red"
+        }
+    }
+    const passLoginBox = () => {
+        const memberPass =document.getElementById("memberPass").value;
+        const b2=document.getElementById("pass1");
+        if(memberPass==""){
+            b2.innerHTML="비밀번호를 입력해주세요"
+            b2.style.color="red";
+        }
     }
 </script>
 </html>

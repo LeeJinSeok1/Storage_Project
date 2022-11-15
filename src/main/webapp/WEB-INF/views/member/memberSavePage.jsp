@@ -28,16 +28,19 @@
     <input type="text" placeholder="ex)'홍길동-2센터' " class="form-control" onblur="nameBox()" id="nb" name="memberName">
     <span id="1"></span>
     <br>
+    전화번호
     <input type="text" placeholder="ex)'010-0000-0000'" class="form-control" onblur="phoneBox()" id="phb" name="memberPhone">
     <span id="2"></span>
     <br>
-    <input type="text" placeholder="이메일 입력" class="form-control" onblur="emailBox()" id="eb" name="memberEmail">
+    이메일
+    <input type="text" placeholder="ex)'abcdef'" class="form-control" onblur="emailBox()" id="eb" name="memberEmail">
     <span id="3"></span>
     <br>
-    <input type="text" placeholder="비밀번호 입력" class="form-control" onblur="passBox()" id="pb" name="memberPass">
+    비밀번호
+    <input type="text" placeholder="ex)'1234'" class="form-control" onblur="passBox()" id="pb" name="memberPass">
     <span id="4"></span>
     <br>
-    <input type="button" class="btn btn-success" value="가입하기" onclick="memberSave()">
+    <input type="button" class="btn btn-success" value="가입하기" onclick="memberSave()" >
   </form>
 </div>
 </body>
@@ -110,15 +113,33 @@
   const emailBox = () => {
     const email =document.getElementById("eb").value;
     const b3 =document.getElementById("3")
-    if(email==""){
-      b3.innerHTML="필수 정보입니다."
-      b3.style.color="red"
-    }else{
-      b3.innerHTML="멋진 이메일이네요."
-      b3.style.color="green"
+    $.ajax({
+      type:"get",
+      url:"/emailCk",
+      data:{
+        memberEmail:email
+      },
+      dateType: "text",
+      success: function (ck) {
+        console.log(ck)
+        if(ck=="no") {
+          b3.innerHTML = "중복된 이메일입니다.!"
+          b3.style.color = "red";
+        }else if(name=="") {
+          b3.innerHTML = "필수 정보입니다."
+          b3.style.color="red";
+        }else if(ck=="good"){
+          b3.innerHTML= "사용 가능한 이메일입니다.!"
+          b3.style.color="green";
+        }
+      },
+      error: function (ck) {
+        console.log(ck)
+        console.log("실패")
+      }
+    })
     }
 
-  }
   const passBox = () => {
     const pass =document.getElementById("pb").value;
     const b4 =document.getElementById("4")
@@ -126,7 +147,8 @@
       b4.innerHTML="필수 정보입니다."
       b4.style.color="red"
     }else{
-      b4.innerHTML=""
+      b4.innerHTML="사용 가능합니다."
+      b4.style.color="green"
     }
 
   }

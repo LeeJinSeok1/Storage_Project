@@ -33,4 +33,21 @@ public class MemberRepository {
     public MemberDTO nameCk(String memberName) {
         return sql.selectOne("memberSpace.nameCk",memberName);
     }
+
+    public MemberDTO emailCk(String memberEmail) {
+        return sql.selectOne("memberSpace.emailCk",memberEmail);
+    }
+
+
+    public MemberDTO myPage(String memberEmail) {
+        return sql.selectOne("memberSpace.myPage",memberEmail);
+    }
+
+    public MemberDTO updatePage(Long id) {
+        return sql.selectOne("memberSpace.updatePage",id);
+    }
+
+    public void updateMember(MemberDTO memberDTO) {
+        sql.update("memberSpace.updateMember",memberDTO);
+    }
 }

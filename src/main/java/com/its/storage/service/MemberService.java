@@ -37,4 +37,21 @@ public class MemberService {
     public MemberDTO nameCk(String memberName) {
         return memberRepository.nameCk(memberName);
     }
+
+    public MemberDTO emailCk(String memberEmail) {
+        return memberRepository.emailCk(memberEmail);
+    }
+
+
+    public MemberDTO myPage(String memberEmail) {
+        return  memberRepository.myPage(memberEmail);
+    }
+
+    public MemberDTO updatePage(Long id) {
+        return  memberRepository.updatePage(id);
+    }
+
+    public void updateMember(MemberDTO memberDTO) {
+        memberRepository.updateMember(memberDTO);
+    }
 }

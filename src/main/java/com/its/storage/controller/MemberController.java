@@ -90,6 +90,36 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/emailCk")
+    public @ResponseBody String emailCk(@RequestParam("memberEmail") String memberEmail) {
+        MemberDTO result = memberService.emailCk(memberEmail);
+        if(result != null) {
+            return "no";
+        }else {
+            return "good";
+        }
+    }
+
+    @GetMapping("/myPage")
+    public String myPage(@RequestParam("memberEmail") String memberEmail,Model model){
+        MemberDTO result = memberService.myPage(memberEmail);
+        model.addAttribute("member",result);
+        return "/member/memberPage";
+    }
+
+    @GetMapping("updateMember")
+    public String updatePage(@RequestParam("id") Long id,
+                             Model model){
+        MemberDTO result = memberService.updatePage(id);
+        model.addAttribute("member",result);
+        return "/member/memberUpdatePage";
+    }
+    @PostMapping("/updateMember")
+    public String updateMember(@ModelAttribute MemberDTO memberDTO){
+        memberService.updateMember(memberDTO);
+        return "mainPage";
+    }
+
 
 
 

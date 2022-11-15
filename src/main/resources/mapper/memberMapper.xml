@@ -22,6 +22,20 @@
     <select id="nameCk" parameterType="String" resultType="memberDTO">
         select*from member_table where memberName=#{memberName}
     </select>
+    <select id="emailCk" parameterType="String" resultType="memberDTO">
+        select*from member_table where memberEmail=#{memberEmail}
+    </select>
+    <select id="myPage" parameterType="String" resultType="memberDTO">
+        select*from member_table where memberEmail=#{memberEmail}
+    </select>
+    <select id="updatePage" parameterType="Long" resultType="memberDTO">
+        select*from member_table where id = #{id}
+    </select>
+    <update id="updateMember" parameterType="memberDTO">
+        update member_table set memberPass=#{memberPass} where id=#{id}
+    </update>
+
+
 
 
 </mapper>
