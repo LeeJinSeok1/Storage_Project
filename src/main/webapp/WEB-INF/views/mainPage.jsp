@@ -10,6 +10,12 @@
 <head>
     <title>Title</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <style>
+        #pt{
+            width: 1000px;
+            height: 700px;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
@@ -24,6 +30,12 @@
     <a href="/paging4" class="btn btn-primary">출고기록 조회</a>
 </div>
 <div class="form-group mt-5">
+</div>
+
+<div style="text-align: center;">
+    <img src="https://www.investkorea.org/namofile.do?dn=/images/000007/lndustry_focus_img.jpg" id="pt">
+    <img src="https://img.etnews.com/photonews/2110/1466195_20211029102230_289_0001.jpg" alt="" style="width: 500px " style="height: 700px">
+</div>
 
 </div>
 </body>
