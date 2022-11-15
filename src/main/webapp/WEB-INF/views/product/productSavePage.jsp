@@ -20,26 +20,37 @@
   <h2 style="float: left">입고등록</h2>
 </div>
 <div class="container mt-5" style="width: 500px">
-  <form action="/productSave" method="get" class="form-control">
+  <form action="/productSave" method="get" class="form-control" name="productSaveForm">
     고객사 이름 입력: <br>
-    <input type="text" class="form-control mt-3" name="productClient" >
+    <input type="text" class="form-control mt-3" name="productClient" id="client" >
     상품 이름 입력: <br>
-    <input type="text" class="form-control mt-3" name="productName" >
+    <input type="text" class="form-control mt-3" name="productName" id="product">
     상품 위치: <br>
-    <input type="text" class="form-control mt-3" name="productLocation" >
+    <input type="text" class="form-control mt-3" name="productLocation" id="location">
     매니저 이름:
-    <select name="memberName" id="" class="form-select mt-3">
+    <select name="memberName"  class="form-select mt-3" >
       <option value="이진석">이진석</option>
       <option value="성정연">성정연</option>
       <option value="김준영">김준영</option>
       <option value="조용준">조용준</option>
     </select>
-    <input type="submit" value="완료" class="btn btn-primary mt-5" onclick="productSave()">
+    <input type="button" value="완료" class="btn btn-primary mt-5" onclick="productSave()">
   </form>
 </div>
 <script>
   const productSave = () => {
-    alert("등록완료")
+    const client = document.getElementById("client").value;
+    const product = document.getElementById("product").value;
+    const location = document.getElementById("location").value;
+    if(client==""){
+      alert("고객사를 입력해주세요")
+    }else if(product=="") {
+      alert("상품명을 입력해주세요")
+    }else if(location=="") {
+      alert("로케이션을 입력해주세요")
+    }else{
+      document.productSaveForm.submit();
+    }
   }
 </script>
 
