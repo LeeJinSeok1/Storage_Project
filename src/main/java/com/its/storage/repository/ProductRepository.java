@@ -33,4 +33,8 @@ public class ProductRepository {
     public void downCount(OutDTO outDTO) {
         sql.update("productSpace.downCount",outDTO);
     }
+
+    public ProductDTO productCk(String productName) {
+        return sql.selectOne("productSpace.productCk",productName);
+    }
 }

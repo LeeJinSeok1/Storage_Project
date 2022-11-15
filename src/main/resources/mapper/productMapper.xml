@@ -22,6 +22,9 @@
     <update id="downCount" parameterType="outDTO">
         update product_table set productCount=productCount - #{outCount} where productName = #{productName}
     </update>
+    <select id="productCk" parameterType="String" resultType="productDTO">
+        select*from product_table where productName=#{productName}
+    </select>
 
 
 </mapper>

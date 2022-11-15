@@ -41,4 +41,7 @@ public class ProductService {
     }
 
 
+    public ProductDTO productCk(String productName) {
+        return  productRepository.productCk(productName);
+    }
 }

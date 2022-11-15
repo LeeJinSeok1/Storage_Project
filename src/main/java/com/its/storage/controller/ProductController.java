@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -43,6 +44,16 @@ public class ProductController {
 
         return "/product/productListPage";
 
+    }
+
+    @GetMapping("/productCk")
+    public @ResponseBody String productCk(@RequestParam("productName") String productName) {
+        ProductDTO result = productService.productCk(productName);
+        if(result !=null){
+            return "good";
+        }else {
+            return "no";
+        }
     }
 
 }
