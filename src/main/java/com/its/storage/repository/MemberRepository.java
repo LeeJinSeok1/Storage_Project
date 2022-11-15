@@ -29,4 +29,8 @@ public class MemberRepository {
     public List<MemberDTO> searchMember(Map<String, String> searchParams) {
         return  sql.selectList("memberSpace.searchMember",searchParams);
     }
+
+    public MemberDTO nameCk(String memberName) {
+        return sql.selectOne("memberSpace.nameCk",memberName);
+    }
 }

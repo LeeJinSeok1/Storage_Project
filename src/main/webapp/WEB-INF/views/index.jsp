@@ -40,6 +40,7 @@
         </div>
     </form>
 </div>
+<a href="/sideBar">tt</a>
 </body>
 <script>
     const loginCk = () => {

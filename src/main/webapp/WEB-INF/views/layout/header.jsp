@@ -21,14 +21,14 @@
 
     <ul class="nav nav-pills">
       <c:if test="${sessionScope.loginEmail != null}">
-        <li class="nav-item"><a href="mainPage" class="nav-link active" aria-current="page">Main</a></li>
+        <li class="nav-item"><a href="/mainPage" class="nav-link active" aria-current="page">Main</a></li>
       </c:if>
       <li class="nav-item"><a href="#" class="btn btn-primary">목록</a></li>
       <c:if test="${sessionScope.loginEmail == null}">
         <li class="nav-item"><a href="#" class="btn btn-primary">로그인</a></li>
       </c:if>
       <c:if test="${sessionScope.loginEmail != null}">
-        <li class="nav-item"><a href="#" class="btn btn-danger">로그아웃</a></li>
+        <li class="nav-item"><a href="/logOut" class="btn btn-danger">로그아웃</a></li>
       </c:if>
       <c:if test="${sessionScope.loginEmail != null}">
         <li></li>

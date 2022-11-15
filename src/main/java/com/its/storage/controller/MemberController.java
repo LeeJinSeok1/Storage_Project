@@ -70,6 +70,25 @@ public class MemberController {
         return "/member/memberListPage";
 
     }
+    @GetMapping("/mainPage")
+    public String mainPage() {
+        return "mainPage";
+    }
+
+    @GetMapping("logOut")
+    public String logOut(HttpSession session){
+        session.invalidate();
+        return "index";
+    }
+    @GetMapping("/nameCk")
+    public @ResponseBody String nameCk(@RequestParam("memberName") String memberName) {
+        MemberDTO result = memberService.nameCk(memberName);
+        if(result !=null) {
+            return "no";
+        }else{
+            return "good";
+        }
+    }
 
 
 

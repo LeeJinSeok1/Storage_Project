@@ -23,9 +23,8 @@
     <a href="/inListPage" class="btn btn-primary">입고기록 조회</a>
     <a href="/outListPage" class="btn btn-primary">출고기록 조회</a>
 </div>
-<div class="form-group">
+<div class="form-group mt-5">
 
 </div>
-
 </body>
 </html>

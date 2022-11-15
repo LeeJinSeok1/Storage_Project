@@ -33,4 +33,8 @@ public class MemberService {
         searchParams.put("q",q);
         return memberRepository.searchMember(searchParams);
     }
+
+    public MemberDTO nameCk(String memberName) {
+        return memberRepository.nameCk(memberName);
+    }
 }
