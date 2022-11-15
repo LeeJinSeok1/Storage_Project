@@ -17,11 +17,11 @@
 <div class="container mt-5">
     <form action="/inSave" method="get" class="form-control" style="width: 500px" name="inForm">
         담당 매니저명: <br>
-        <input type="text" name="memberName" class="form-control mt-3" id="memberName">
+        <input type="text" name="memberName" class="form-control mt-3" id="memberName" >
         상품명: <br>
         <input type="text" name="productName" class="form-control mt-3" id="productName">
         입고수량: <br>
-        <input type="text" name="inCount" class="form-control mt-3" id="count">
+        <input type="text" name="inCount" class="form-control mt-3" id="count" >
         <br>
         <input type="button" value="등록하기" class="btn btn-success mt-3" onclick="inSave()" >
     </form>

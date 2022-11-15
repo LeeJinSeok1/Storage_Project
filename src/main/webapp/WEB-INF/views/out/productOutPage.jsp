@@ -10,25 +10,54 @@
 <head>
   <title>product_In_Page</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+  <script src="/resources/js/jqurey.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container mt-5">
-  <form action="/outSave" method="get" class="form-control" style="width: 500px">
+  <form action="/outSave" method="get" class="form-control" style="width: 500px" name="outForm">
     담당 매니저명: <br>
-    <input type="text" name="memberName" class="form-control mt-3">
+    <input type="text" name="memberName" class="form-control mt-3" id="memberName">
     상품명: <br>
-    <input type="text" name="productName" class="form-control mt-3">
+    <input type="text" name="productName" class="form-control mt-3" id="productName">
     출고수량: <br>
-    <input type="text" name="outCount" class="form-control mt-3">
+    <input type="text" name="outCount" class="form-control mt-3" id="count">
     <br>
-    <input type="submit" value="등록하기" class="btn btn-success mt-3" onclick="outSave()" >
+    <input type="button" value="등록하기" class="btn btn-success mt-3" onclick="outSave()" >
   </form>
 </div>
+
 </body>
 <script>
   const outSave = () => {
-    alert("출고완료")
+    const memberName = document.getElementById("memberName").value;
+    const productName = document.getElementById("productName").value;
+    const count = document.getElementById("count").value;
+
+    if(memberName==""){
+      alert("필수값입니다.")
+    }else if(count==""){
+      alert("필수값입니다.")
+    }
+
+    $.ajax({
+      type:"get",
+      url:"/productCk",
+      data:{
+        productName:productName
+      },
+      dateType: "text",
+      success: function (ck) {
+        if(ck=="good"){
+          document.outForm.submit();
+        }else if(ck=="no"){
+          alert("입력하신 상품이 없습니다.")
+        }
+      },
+      error: function (ck) {
+
+      }
+    })
   }
 </script>
 </html>
