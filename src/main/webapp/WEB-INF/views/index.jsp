@@ -21,9 +21,8 @@
 <body>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div class="container" style="padding-top: 100px">
-    <h2 style="text-align: center">Storage Program</h2>
-    <br>
     <form action="/memberLogin" method="post" name="loginForm" class="form-control" style="width: 500px" id="loginBox">
+        <img src="https://www.youthdaily.co.kr/data/photos/20191043/art_15719038053397_e0bbe4.jpg" alt="" style="width: 460px" class="">
         <br>
         이메일
         <input type="text" class="form-control" placeholder="이메일입력" name="memberEmail" id="memberEmail" onblur="emailLoginBox()">
@@ -33,10 +32,10 @@
         <input type="text" class="form-control" placeholder="비밀번호입력" name="memberPass" id="memberPass" onblur="passLoginBox()">
         <span id="pass1"></span>
         <br>
-        <div class="form-group">
+        <div class="form-group mb-5">
             <input type="button" onclick="loginCk()" value="로그인" class="btn btn-primary">
             <div class="form-group" style="float: right">
-                <a href="/memberSavePage" class="btn btn-success">회원가입</a>
+                <a href="/memberSavePage" class="btn btn-primary">회원가입</a>
             </div>
         </div>
     </form>

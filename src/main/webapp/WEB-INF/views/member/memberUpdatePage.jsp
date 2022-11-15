@@ -32,7 +32,7 @@
       <td>${member.memberEmail}</td>
     </tr>
     <tr>
-      <th>수정할 비밀번호 입력</th>
+      <th>수정 비밀번호</th>
       <td>
         <form action="/updateMember" method="post">
         <input type="text" value="${member.id}" name="id" hidden>

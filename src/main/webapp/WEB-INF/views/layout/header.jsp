@@ -10,6 +10,11 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        li {
+            margin-left:10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -22,19 +27,20 @@
     <ul class="nav nav-pills">
       <c:if test="${sessionScope.loginEmail != null}">
         <li class="nav-item"><a href="/mainPage" class="nav-link active" aria-current="page">Main</a></li>
+
       </c:if>
 <%--      <li class="nav-item"><a href="#" class="btn btn-primary">목록</a></li>--%>
       <c:if test="${sessionScope.loginEmail == null}">
         <li class="nav-item"><a href="/" class="btn btn-primary">로그인</a></li>
+
       </c:if>
-        <c:if test="${sessionScope.loginEmail != null}">
-            <li class="nav-item"><a href="/myPage?memberEmail=${sessionScope.loginEmail}" class="btn btn-warning">내정보</a></li>
-        </c:if>
+
       <c:if test="${sessionScope.loginEmail != null}">
         <li class="nav-item"><a href="/logOut" class="btn btn-danger">로그아웃</a></li>
+
       </c:if>
       <c:if test="${sessionScope.loginEmail != null}">
-        <li></li>
+
         <li><strong>${sessionScope.loginEmail}</strong>님 환영합니다.</li>
       </c:if>
 
