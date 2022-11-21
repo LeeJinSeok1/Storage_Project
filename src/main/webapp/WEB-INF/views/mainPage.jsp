@@ -11,12 +11,8 @@
 <head>
     <title>Title</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
-    <script src="/resources/js/jqurey.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-        #pt{
-            width: 1000px;
-            height: 700px;
-        }
     </style>
 </head>
 <body>
@@ -41,32 +37,34 @@
 <%--    <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" id="pt">--%>
 <%--    <img style="width: 500px " style="height: 700px">--%>
 <%--</div>--%>
-
 <div class="container">
-    <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" ></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" ></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" ></button>
+        </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" class="d-block w-100" alt="...">
+                <img src="https://s3.ap-northeast-2.amazonaws.com/cloimage/home/rails/clo/public/ckeditor_assets/pictures/838/content_.jpg." class="d-block w-100" alt="..." id="1" style=" width: 1200px;  height: 700px;">
             </div>
             <div class="carousel-item">
-                <img src="" class="d-block w-100" alt="...">
+                <img src="https://byline.network/wp-content/uploads/2019/10/wekeep-fulfillment-1200x640.jpg" class="d-block w-100" alt="..." id="2"  style=" width: 1200px;  height: 700px;">
             </div>
             <div class="carousel-item">
-                <img src="https://wowtale.net/wp-content/uploads/2021/08/wekeep.jpeg" class="d-block w-100" alt="...">
+                <img src="http://www.kbanker.co.kr/news/photo/202210/206985_55768_2827.jpg" class="d-block w-100" alt="..." id="3" style=" width: 1200px;  height: 700px;">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" >
+            <span class="carousel-control-prev-icon " style="background-color: dodgerblue" aria-hidden="true" ></span>
+            <span class="visually-hidden" >Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
+            <span class="carousel-control-next-icon" style="background-color: dodgerblue" aria-hidden="true" ></span>
+            <span class="visually-hidden" >Next</span>
         </button>
     </div>
-
 </div>
 
-</div>
 </body>
 </html>
