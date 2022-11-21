@@ -11,6 +11,7 @@
 <head>
     <title>memberListPage</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <script src="/resources/js/jqurey.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -32,6 +33,9 @@
         <th>이름</th>
         <th>전화번호</th>
         <th>이메일</th>
+        <c:if test="${sessionScope.loginEmail == 'admin'}">
+        <th>삭제</th>
+        </c:if>
 
     </tr>
 
@@ -42,6 +46,9 @@
             <td>${member.memberName}</td>
             <td>${member.memberPhone}</td>
             <td>${member.memberEmail}</td>
+            <c:if test="${sessionScope.loginEmail == 'admin'}">
+                <td><button class="btn btn-warning" onclick="deleteMember(${member.id})">회원삭제</button></td>
+            </c:if>
         </tr>
     </c:forEach>
 </table>
@@ -95,4 +102,9 @@
     </ul>
 </div>
 </body>
+<script>
+    const deleteMember = (id) => {
+        location.href="/deleteMember?id="+id;
+    }
+</script>
 </html>

@@ -132,6 +132,12 @@ public class MemberController {
         return "/member/memberPaging";
     }
 
+    @GetMapping("/deleteMember")
+    public String deleteMember(@RequestParam("id") Long id) {
+        memberService.deleteMember(id);
+        return "mainPage";
+    }
+
 
 
 

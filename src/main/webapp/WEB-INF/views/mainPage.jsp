@@ -11,6 +11,7 @@
 <head>
     <title>Title</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <script src="/resources/js/jqurey.js"></script>
     <style>
         #pt{
             width: 1000px;
@@ -36,9 +37,34 @@
 <div class="form-group mt-5">
 </div>
 
-<div style="text-align: center;">
-    <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" id="pt">
-    <img style="width: 500px " style="height: 700px">
+<%--<div style="text-align: center;">--%>
+<%--    <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" id="pt">--%>
+<%--    <img style="width: 500px " style="height: 700px">--%>
+<%--</div>--%>
+
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://wowtale.net/wp-content/uploads/2021/08/wekeep.jpeg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
 </div>
 
 </div>

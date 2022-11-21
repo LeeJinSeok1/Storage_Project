@@ -84,4 +84,8 @@ public class MemberService {
         pageDTO.setEndPage(endPage);
         return pageDTO;
     }
+
+    public void deleteMember(Long id) {
+        memberRepository.deleteMember(id);
+    }
 }

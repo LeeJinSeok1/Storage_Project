@@ -58,4 +58,8 @@ public class MemberRepository {
     public int memberCount() {
         return  sql.selectOne("memberSpace.memberCount");
     }
+
+    public void deleteMember(Long id) {
+        sql.delete("memberSpace.deleteMember",id);
+    }
 }

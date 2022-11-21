@@ -40,6 +40,9 @@
     <select id="memberCount" resultType="integer">
         select count(id) from member_table;
     </select>
+    <delete id="deleteMember" parameterType="Long">
+        delete from member_table where id=#{id}
+    </delete>
 
 
 
