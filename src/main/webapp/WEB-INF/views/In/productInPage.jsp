@@ -13,6 +13,7 @@
     <script src="/resources/js/jqurey.js"></script>
 </head>
 <body>
+<jsp:include page="../layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container mt-5">
     <form action="/inSave" method="get" class="form-control" style="width: 500px" name="inForm">

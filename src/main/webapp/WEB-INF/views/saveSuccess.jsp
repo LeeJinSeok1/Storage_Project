@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
+<jsp:include page="layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
 <div style="padding-top: 100px">
 <h1 style="text-align: center">회원가입이 완료되었습니다.</h1> <br>

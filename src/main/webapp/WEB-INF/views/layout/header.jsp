@@ -39,13 +39,6 @@
         <li class="nav-item"><a href="/logOut" class="btn btn-danger">로그아웃</a></li>
 
       </c:if>
-      <c:if test="${sessionScope.loginEmail != null}">
-
-        <li><strong>${sessionScope.loginEmail}</strong>님 환영합니다.</li>
-      </c:if>
-
-
-
 <%--      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>--%>
 <%--      <li class="nav-item"><a href="#" class="nav-link">About</a></li>--%>
     </ul>

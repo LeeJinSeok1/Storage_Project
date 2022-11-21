@@ -14,6 +14,7 @@
     <script src="/resources/js/jqurey.js"></script>
 </head>
 <body>
+<jsp:include page="../layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <form action="/searchMember" method="get" class="form-group mt-5">

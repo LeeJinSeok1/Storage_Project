@@ -16,7 +16,9 @@
     </style>
 </head>
 <body>
+<%--<jsp:include page="layout/sideBar.jsp" flush="false"></jsp:include>--%>
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
+
 
 <div class="form-group form-control mt-5" style="text-align: center">
     <a href="/saveProductPage" class="btn btn-primary" style="margin-left: 20px">상품 등록하기</a>

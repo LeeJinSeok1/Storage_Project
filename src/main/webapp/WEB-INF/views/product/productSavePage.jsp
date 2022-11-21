@@ -14,6 +14,7 @@
 
 </head>
 <body>
+<jsp:include page="../layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <div class="container mt-5">
