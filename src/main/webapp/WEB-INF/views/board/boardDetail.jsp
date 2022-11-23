@@ -40,10 +40,13 @@
     </tr>
   </table>
   <div class="container mt-5" >
-
+    <div class="input-group">
+      <h5 style="width: 100px">작성자</h5>
+      <h5 style="margin-left: 150px">내용</h5>
+    </div>
       <div class="input-group" style="float: right">
         <input id="boardId" type="text" value="${board.id}" name="boardId" hidden>
-      <input id="commentMember" type="text" class="form-control" name="commentMember" placeholder="댓글 작성자" style="width: 100px">
+      <input id="commentMember" type="text" class="form-control" name="commentMember" value="${sessionScope.loginEmail}" style="width: 100px" readonly>
       <input id="commentContents" type="text" class="form-control" name="commentContents" placeholder="댓글 내용" style="width: 900px; margin-left: 10px">
       </div>
         <button class="btn btn-primary mt-3" style="float: right" onclick="commentSave()">댓글 달기</button>
