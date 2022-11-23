@@ -80,7 +80,7 @@
       <li><a href="/paging3">입고기록 조회</a></li>
       <li><a href="/paging4">출고기록 조회</a></li>
       <li><a href="/myPage?memberEmail=${sessionScope.loginEmail}">내 정보</a></li>
-      <li><a href="#">관리자 페이지</a></li>
+      <li><a href="/paging5">게시판</a></li>
       <li style="float: bottom"><h6 style="color: white"> ${sessionScope.loginEmail}님 환영합니다.</h6></li>
     </ul>
   </div>

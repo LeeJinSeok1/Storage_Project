@@ -16,6 +16,9 @@
     <select id="boardCount" resultType="integer">
         select count(id) from board_table;
     </select>
+    <select id="boardDetail" parameterType="Long" resultType="boardDTO">
+        select*from board_table where id=#{id};
+    </select>
 
 </mapper>
 

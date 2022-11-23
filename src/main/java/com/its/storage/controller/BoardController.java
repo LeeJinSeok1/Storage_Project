@@ -1,8 +1,10 @@
 package com.its.storage.controller;
 
 import com.its.storage.dto.BoardDTO;
+import com.its.storage.dto.CommentDTO;
 import com.its.storage.dto.PageDTO;
 import com.its.storage.service.BoardService;
+import com.its.storage.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ import java.util.List;
 
 @Controller
 public class BoardController {
+    @Autowired
+    CommentService commentService;
     @Autowired
     BoardService boardService;
     @GetMapping("/boardPage")
@@ -41,6 +45,14 @@ public class BoardController {
         model.addAttribute("boardList", pagingList);
         model.addAttribute("paging", pageDTO);
         return "/board/boardMain";
+    }
+    @GetMapping("/boardDetail")
+    public String boardDetail(@RequestParam("id") Long id,Model model) {
+        BoardDTO boardDTO = boardService.boardDetail(id);
+        model.addAttribute("board",boardDTO);
+        List<CommentDTO> result = commentService.commentList2(id);
+        model.addAttribute("commentList",result);
+        return "/board/boardDetail";
     }
 
 

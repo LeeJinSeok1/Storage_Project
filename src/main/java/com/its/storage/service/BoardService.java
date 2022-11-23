@@ -50,4 +50,8 @@ public class BoardService {
         pageDTO.setEndPage(endPage);
         return pageDTO;
     }
+
+    public BoardDTO boardDetail(Long id) {
+        return boardRepository.boardDetail(id);
+    }
 }

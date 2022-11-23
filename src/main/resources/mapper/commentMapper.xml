@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="commentSpace">
+    <insert id="commentSave" parameterType="commentDTO">
+        insert into comment_table(commentMember,commentContents,boardId) values (#{commentMember},
+                                                                                 #{commentContents},
+                                                                                 #{boardId})
+    </insert>
+    <select id="commentList" parameterType="commentDTO" resultType="commentDTO">
+        select*from comment_table where boardId = #{boardId}
+    </select>
+    <select id="commentList2" parameterType="Long" resultType="commentDTO">
+        select*from comment_table where boardId = #{boardId}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

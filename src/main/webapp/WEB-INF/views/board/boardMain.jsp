@@ -38,7 +38,7 @@
         <tr>
             <td>${bl.id}</td>
             <td>${bl.boardMember}</td>
-            <td>${bl.boardName}</td>
+            <td><a href="/boardDetail?id=${bl.id}">${bl.boardName}</a></td>
             <td>${bl.boardContents}</td>
             <td>${bl.boardTime}</td>
         </tr>
