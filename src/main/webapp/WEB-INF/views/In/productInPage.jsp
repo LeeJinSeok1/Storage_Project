@@ -15,6 +15,10 @@
 <body>
 <jsp:include page="../layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div class="form-group mt-5">
+    <div>
+        <h2 style="float: left " >출고등록</h2>
+    </div>
 <div class="container mt-5">
     <form action="/inSave" method="get" class="form-control" style="width: 500px" name="inForm">
         담당 매니저명: <br>
@@ -26,6 +30,7 @@
         <br>
         <input type="button" value="등록하기" class="btn btn-success mt-3" onclick="inSave()" >
     </form>
+</div>
 </div>
 </body>
 <script>
@@ -49,6 +54,7 @@
             dateType: "text",
             success: function (ck) {
                 if(ck=="good"){
+                    alert("등록완료")
                     document.inForm.submit();
                 }else if(ck=="no"){
                     alert("입력하신 상품이 없습니다.")

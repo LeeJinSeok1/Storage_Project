@@ -2,54 +2,45 @@
   Created by IntelliJ IDEA.
   User: user
   Date: 2022-11-14
-  Time: 오전 10:53
+  Time: 오후 2:11
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>memberListPage</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
-    <script src="/resources/js/jqurey.js"></script>
+  <title>product_In_Page</title>
+  <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+  <script src="/resources/js/jqurey.js"></script>
 </head>
 <body>
 <jsp:include page="../layout/sideBar.jsp" flush="false"></jsp:include>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-
-<form action="/searchMember" method="get" class="form-group mt-5">
-    <select name="type" class="form-select-lg">
-        <option value="memberName">매니저이름</option>
-        <option value="memberEmail">이메일</option>
-        <option value="memberPhone">전화번호</option>
-    </select>
-
-    <input type="text" name="q" class="form-control-lg" placeholder="Search..">
-    <input type="submit" class="btn btn-success" value="검색하기">
-</form>
+<div class="container mt-5">
+ <h2 style="text-align: center">게시판</h2>
+    <div class="container" style="margin-right: 15px">
+        <a href="/boardSavePage" style="float: right" class="btn btn-primary">글작성</a>
+    </div>
+</div>
 <table class="table table-striped table-hover text-center mt-5">
     <tr>
 
         <th>id</th>
-        <th>이름</th>
-        <th>전화번호</th>
-        <th>이메일</th>
-        <c:if test="${sessionScope.loginEmail == 'admin'}">
-        <th>삭제</th>
-        </c:if>
+        <th>작성자</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>작성시간</th>
 
     </tr>
 
 
-    <c:forEach items="${memberList}" var="member">
+    <c:forEach items="${boardList}" var="bl">
         <tr>
-            <td>${member.id}</td>
-            <td>${member.memberName}</td>
-            <td>${member.memberPhone}</td>
-            <td>${member.memberEmail}</td>
-            <c:if test="${sessionScope.loginEmail == 'admin'}">
-                <td><button class="btn btn-warning" onclick="deleteMember(${member.id})">회원삭제</button></td>
-            </c:if>
+            <td>${bl.id}</td>
+            <td>${bl.boardMember}</td>
+            <td>${bl.boardName}</td>
+            <td>${bl.boardContents}</td>
+            <td>${bl.boardTime}</td>
         </tr>
     </c:forEach>
 </table>
@@ -65,7 +56,7 @@
             <%-- 1페이지가 아닌 경우에는 [이전]을 클릭하면 현재 페이지보다 1 작은 페이지 요청 --%>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/paging2?page=${paging.page-1}">[이전]</a>
+                    <a class="page-link" href="/paging5?page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -82,7 +73,7 @@
 
                 <c:otherwise>
                     <li class="page-item">
-                        <a class="page-link" href="/paging2?page=${i}">${i}</a>
+                        <a class="page-link" href="/paging5?page=${i}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -96,7 +87,7 @@
             </c:when>
             <c:otherwise>
                 <li class="page-item">
-                    <a class="page-link" href="/paging2?page=${paging.page+1}">[다음]</a>
+                    <a class="page-link" href="/paging5?page=${paging.page+1}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>
@@ -104,8 +95,6 @@
 </div>
 </body>
 <script>
-    const deleteMember = (id) => {
-        location.href="/deleteMember?id="+id;
-    }
+
 </script>
 </html>

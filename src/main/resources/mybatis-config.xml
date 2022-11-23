@@ -7,5 +7,6 @@
         <typeAlias type="com.its.storage.dto.ProductDTO" alias="productDTO" />
         <typeAlias type="com.its.storage.dto.InDTO" alias="inDTO" />
         <typeAlias type="com.its.storage.dto.OutDTO" alias="outDTO" />
+        <typeAlias type="com.its.storage.dto.BoardDTO" alias="boardDTO" />
     </typeAliases>
 </configuration>

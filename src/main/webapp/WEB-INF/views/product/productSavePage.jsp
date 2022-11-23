@@ -18,7 +18,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <div class="container mt-5">
-  <h2 style="float: left">입고등록</h2>
+  <h2 style="float: left">상품등록</h2>
 </div>
 <div class="container mt-5" style="width: 500px">
   <form action="/productSave" method="get" class="form-control" name="productSaveForm">

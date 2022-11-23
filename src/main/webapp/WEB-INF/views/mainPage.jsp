@@ -29,8 +29,9 @@
     <a href="/paging3" class="btn btn-primary" style="margin-left: 20px">입고기록 조회</a>
     <a href="/paging4" class="btn btn-primary" style="margin-left: 20px">출고기록 조회</a>
     <c:if test="${sessionScope.loginEmail != null}">
-        <a href="/myPage?memberEmail=${sessionScope.loginEmail}" class="btn btn-warning" style="margin-left: 20px">내정보</a>
+        <a href="/myPage?memberEmail=${sessionScope.loginEmail}" class="btn btn-primary" style="margin-left: 20px">내정보</a>
     </c:if>
+    <a href="/paging5" class="btn btn-primary" style="margin-left: 20px">게시판</a>
 </div>
 <div class="form-group mt-5">
 </div>
@@ -39,7 +40,8 @@
 <%--    <img src="https://appservice-img.s3.amazonaws.com/apps/RuGfOHzXD62V57cMfaQ3GF/ko/screenshot2/image?1652935584" id="pt">--%>
 <%--    <img style="width: 500px " style="height: 700px">--%>
 <%--</div>--%>
-<div class="container">
+
+<div class="container form-group" style="width: 1000px; height: 700px ">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" ></button>
