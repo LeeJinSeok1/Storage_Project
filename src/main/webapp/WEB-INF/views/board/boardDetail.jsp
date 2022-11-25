@@ -49,17 +49,19 @@
       <input id="commentMember" type="text" class="form-control" name="commentMember" value="${sessionScope.loginEmail}" style="width: 100px" readonly>
       <input id="commentContents" type="text" class="form-control" name="commentContents" placeholder="댓글 내용" style="width: 900px; margin-left: 10px">
       </div>
-        <button class="btn btn-primary mt-3" style="float: right" onclick="commentSave()">댓글 달기</button>
-
+    <div class="mt-3">
+        <button class="btn btn-primary" style="float: right" onclick="commentSave()">댓글 달기</button>
+  </div>
 
   </div>
   <div class="container mt-5" id="comment-list">
-    <table class="table">
+    <table class="table table-dark table-striped">
       <tr>
         <th>댓글번호</th>
         <th>작성자</th>
         <th>내용</th>
         <th>작성시간</th>
+<%--        <th>삭제</th>--%>
       </tr>
       <c:forEach items="${commentList}" var="comment">
         <tr>
@@ -67,6 +69,7 @@
           <td>${comment.commentMember}</td>
           <td>${comment.commentContents}</td>
           <td>${comment.commentTime}</td>
+<%--          <td><button class="btn btn-danger">삭제</button></td>--%>
         </tr>
       </c:forEach>
     </table>
@@ -86,17 +89,19 @@
       },
       dateType: "json",
       success: function (commentList) {
-        let output = "<table class='table'>";
+        let output = "<table class='table table-dark table-striped'>";
         output += "<tr><th>댓글번호</th>";
         output += "<th>작성자</th>";
         output += "<th>내용</th>";
         output += "<th>작성시간</th></tr>";
+        // output += "<th>삭제</th></tr>";
         for(let i in commentList){
           output += "<tr>";
           output += "<td>"+commentList[i].id+"</td>";
           output += "<td>"+commentList[i].commentMember+"</td>";
           output += "<td>"+commentList[i].commentContents+"</td>";
           output += "<td>"+commentList[i].commentTime+"</td>";
+          // output += "<td><button class='btn btn-danger' >삭제</button></td>";
           output += "</tr>";
         }
         output += "</table>";

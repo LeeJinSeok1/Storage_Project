@@ -43,7 +43,7 @@
         <tr>
             <td>${products.id}</td>
             <td>${products.productClient}</td>
-            <td>${products.productName}</td>
+            <td><a href="/productDetail?id=${products.id}">${products.productName}</a></td>
             <td>${products.productCount}</td>
             <td>${products.productLocation}</td>
             <td>${products.memberName}</td>

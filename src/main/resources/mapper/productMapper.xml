@@ -4,11 +4,17 @@
 
 
 <mapper namespace="productSpace">
-    <insert id="productSave" parameterType="productDTO">
+    <insert id="productSave" parameterType="productDTO" useGeneratedKeys="true" keyProperty="id">
         insert into product_table(productClient,productName,productLocation,memberName) values (#{productClient},
                                                                                                 #{productName},
                                                                                                 #{productLocation},
                                                                                                 #{memberName})
+    </insert>
+    <insert id="saveFile" parameterType="productDTO">
+        insert into product_file_table(originalFileName,fakeFileName,productId)
+        values (#{originalFileName},
+                #{fakeFileName},
+                #{id})
     </insert>
     <select id="productList" resultType="productDTO">
         select*from product_table;
@@ -30,6 +36,9 @@
     </select>
     <select id="productCount" resultType="integer">
         select count(id) from product_table;
+    </select>
+    <select id="productDetail" parameterType="Long" resultType="productDTO">
+        select*from product_table p,product_file_table f where p.id = #{id} and p.id=f.productId
     </select>
 
 

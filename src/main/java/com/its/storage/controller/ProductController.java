@@ -6,11 +6,9 @@ import com.its.storage.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -24,8 +22,8 @@ public class ProductController {
     }
 
     // 상품 저장 처리
-    @GetMapping("/productSave")
-    public String productSave(@ModelAttribute ProductDTO productDTO) {
+    @PostMapping("/productSave")
+    public String productSave(@ModelAttribute ProductDTO productDTO) throws IOException {
         productService.productSave(productDTO);
         return "mainPage";
     }
@@ -67,6 +65,13 @@ public class ProductController {
         model.addAttribute("productList",pagingList);
         model.addAttribute("paging",pageDTO);
         return "/product/productPaging";
+    }
+
+    @GetMapping("/productDetail")
+    public String productDetail(@RequestParam("id") Long id,Model model) {
+        ProductDTO result = productService.productDetail(id);
+        model.addAttribute("product",result);
+        return "/product/productDetail";
     }
 
 }

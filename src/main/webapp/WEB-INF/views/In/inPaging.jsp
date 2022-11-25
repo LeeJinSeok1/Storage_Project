@@ -28,7 +28,6 @@
 <%--</form>--%>
 <table class="table table-striped table-hover text-center mt-5">
     <tr>
-
         <th>id</th>
         <th>입고 매니저</th>
         <th>상품명</th>

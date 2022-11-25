@@ -21,7 +21,7 @@
   <h2 style="float: left">상품등록</h2>
 </div>
 <div class="container mt-5" style="width: 500px">
-  <form action="/productSave" method="get" class="form-control" name="productSaveForm">
+  <form action="/productSave" method="post" class="form-control" name="productSaveForm" enctype="multipart/form-data">
     고객사 이름 입력: <br>
     <input type="text" class="form-control mt-3" name="productClient" id="client" >
     상품 이름 입력: <br>
@@ -35,6 +35,8 @@
       <option value="김준영">김준영</option>
       <option value="조용준">조용준</option>
     </select>
+    상품 사진:
+    <input type="file" class="form-control mt-3" name="productFile">
     <input type="button" value="완료" class="btn btn-primary mt-5" onclick="productSave()">
   </form>
 </div>

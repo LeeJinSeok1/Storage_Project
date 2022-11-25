@@ -14,8 +14,9 @@ import java.util.Map;
 public class ProductRepository {
     @Autowired
     SqlSessionTemplate sql;
-    public void productSave(ProductDTO productDTO) {
+    public ProductDTO productSave(ProductDTO productDTO) {
         sql.insert("productSpace.productSave",productDTO);
+        return productDTO;
     }
 
     public List<ProductDTO> productList() {
@@ -44,5 +45,13 @@ public class ProductRepository {
 
     public int productCount() {
         return sql.selectOne("productSpace.productCount");
+    }
+
+    public void saveFile(ProductDTO result) {
+        sql.insert("productSpace.saveFile",result);
+    }
+
+    public ProductDTO productDetail(Long id) {
+      return  sql.selectOne("productSpace.productDetail",id);
     }
 }
