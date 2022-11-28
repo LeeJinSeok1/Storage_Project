@@ -28,7 +28,7 @@
     </tr>
     <tr>
       <th>사진</th>
-      <td><img src="${pageContext.request.contextPath}/upload/${product.fakeFileName}" alt="" width="100" height="100"></td>
+      <td><img src="${pageContext.request.contextPath}/upload/${product.fakeFileName}" alt="" width="300" height="300"></td>
     </tr>
     <tr>
       <th>상품명</th>

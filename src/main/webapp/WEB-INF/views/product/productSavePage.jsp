@@ -52,6 +52,7 @@
     }else if(location=="") {
       alert("로케이션을 입력해주세요")
     }else{
+        alert("등록 완료")
       document.productSaveForm.submit();
     }
   }
